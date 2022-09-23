@@ -31,11 +31,11 @@ game_map = load_map("game_map.txt")
 
 
 #load the image of the player
-player_image = pygame.image.load("Saudi_lady-32bit.png")
+player_image = pygame.image.load("Saudi_lady-32bit1.png")
 
 #load the images of the tiles
-grass_image = pygame.image.load("Grass_new.png")
-dirt_image = pygame.image.load("Dirt_new.png")
+grass_image = pygame.image.load("Grass.png")
+dirt_image = pygame.image.load("Dirt.png")
 TILE_SIZE = grass_image.get_width()
 
 
@@ -81,7 +81,7 @@ moving_r = False
 
 player_y_momentum = 0
 
-player_rect = pygame.Rect(50, 50, player_image.get_width(), player_image.get_height())
+player_rect = pygame.Rect(900, 200, player_image.get_width(), player_image.get_height())
 air_timer = 0
 
 #scrolling the screen
@@ -123,6 +123,7 @@ while True:
         player_y_momentum = 3
 
     player_rect, collisions = move(player_rect, player_movement, tile_rects)
+
     if collisions['bottom']:
         player_y_momentum = 0
         air_timer = 0
