@@ -11,7 +11,7 @@ screen = pygame.display.set_mode(WINDOW_SIZE, 0, 32)
 
 display = pygame.Surface((300, 200))
 
-player_image = pygame.image.load("Saudi_man.png")
+player_image = pygame.image.load("Saudi_lady.png")
 
 grass_image = pygame.image.load("Grass.png")
 dirt_image = pygame.image.load("dirt .png")
