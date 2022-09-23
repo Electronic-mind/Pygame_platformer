@@ -3,18 +3,21 @@ from pygame.locals import *
 
 
 
-
 class AnimatedObj(pygame.sprite.Sprite):
 
     def __init__(self, pos_x, pos_y):
         super().__init__()
         self.sprites = []
-        self.sprites.append(pygame.image.load("Flag1.png"))
-        self.sprites.append(pygame.image.load("Flag2.png"))
-        self.sprites.append(pygame.image.load("Flag3.png"))
-        self.sprites.append(pygame.image.load("Flag4.png"))
-        self.sprites.append(pygame.image.load("Flag5.png"))
-        self.sprites.append(pygame.image.load("Flag6.png"))
+        # self.sprites.append(pygame.image.load("Flag1.png"))
+        # self.sprites.append(pygame.image.load("Flag2.png"))
+        # self.sprites.append(pygame.image.load("Flag3.png"))
+        # self.sprites.append(pygame.image.load("Flag4.png"))
+        # self.sprites.append(pygame.image.load("Flag5.png"))
+        # self.sprites.append(pygame.image.load("Flag6.png"))
+
+        for i in range(63):
+            self.sprites.append(pygame.image.load(f"flags/frame{i}.png"))
+
         self.current_sprite = 0
         self.image = self.sprites[self.current_sprite]
 
@@ -41,8 +44,8 @@ FPS = 60
 
 
 #Creating a display surface
-WINDOW_WIDTH = 900
-WINDOW_HEIGHT = 600
+WINDOW_WIDTH = 500
+WINDOW_HEIGHT = 700
 surface = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 
 
@@ -52,10 +55,10 @@ Flag = AnimatedObj(WINDOW_WIDTH//2, WINDOW_HEIGHT//2)
 moving_sprites.add(Flag)
 
 
-#Creating the mast
-mast_image = pygame.image.load("mast.png")
-mast_rect = mast_image.get_rect()
-mast_rect.topleft = [WINDOW_WIDTH//2 - 132, WINDOW_HEIGHT//2 -80]
+# #Creating the mast
+# mast_image = pygame.image.load("mast.png")
+# mast_rect = mast_image.get_rect()
+# mast_rect.topleft = [WINDOW_WIDTH//2 - 132, WINDOW_HEIGHT//2 -80]
 
 
 
@@ -71,8 +74,8 @@ while True:
 
     #Update the screen
     
-    surface.fill((0, 0, 0))
-    surface.blit(mast_image, mast_rect)
+    surface.fill((250, 250, 250))
+    # surface.blit(mast_image, mast_rect)
     moving_sprites.draw(surface)
     moving_sprites.update(0.15)
     pygame.display.flip()
